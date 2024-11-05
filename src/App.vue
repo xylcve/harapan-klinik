@@ -1,5 +1,6 @@
 <template>
-  <div id="app" class="relative w-full max-w-md min-h-screen font-sans text-gray-800 flex flex-col m-auto text-sm">
+  <div id="app"
+    class="relative w-full max-w-md min-h-screen font-sans text-gray-800 flex flex-col m-auto text-sm drop-shadow-2xl">
     <NavbarTop v-if="!isLoginPage && !isRegisterPage && !isLandingPage" />
     <main class="flex-grow bg-primary flex flex-col">
       <router-view></router-view> <!-- Konten halaman berdasarkan router -->
