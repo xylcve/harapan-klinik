@@ -6,12 +6,14 @@
       <img src="../assets/logo-big.svg" alt="" class="m-auto" />
       <div class="m-4 mt-10 p-4 bg-pure-white shadow-xl rounded-lg">
         <p class="text-lg font-bold text-primary text-center">Selamat datang di Harapan Klinik</p>
-        <p class="text-primary text-center mt-2">Kesehatan Anda, prioritas kami. Antri lebih mudah, pelayanan lebih
+        <p class="text-primary text-center mt-2">Kesehatan Anda, prioritas kami. Antri lebih mudah, pelayanan
+          lebih
           cepat.</p>
         <hr class="text-primary mt-6 w-2/4 m-auto" />
         <hr class="text-primary mt-2 w-3/4 m-auto" />
         <hr class="text-primary mt-2 w-full m-auto" />
-        <p class="mt-4 text-primary">Silahkan <span class="font-bold">Login</span> untuk melanjutkan ke Aplikasi</p>
+        <p class="mt-4 text-primary">Silahkan <span class="font-bold">Login</span> untuk melanjutkan ke Aplikasi
+        </p>
 
         <!-- Login Button -->
         <LoginCard />

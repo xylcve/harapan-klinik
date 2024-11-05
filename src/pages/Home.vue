@@ -15,7 +15,7 @@
         </div>
 
         <!-- Bagian Ambil Nomor Antrian -->
-        <div class="bg-white mt-16 p-4 rounded-t-3xl">
+        <div class="bg-white mt-16 p-4 rounded-t-3xl pb-16">
           <p class="text-center text-primary font-bold text-lg">AMBIL NOMOR ANTRIAN</p>
           <p class="text-primary mt-2">Ambil nomor antrian di sini selama jam operasional klinik dan <span
               class="font-bold">datang sesuai waktu yang ditentukan.</span></p>
@@ -74,7 +74,7 @@
             <p class="text-white">Anda telah <span class="font-bold"> berhasil mendapatkan nomor antrian </span>
               silahkan tunjukkan ke petugas yang ada.</p>
           </div>
-          <div class="bg-white mt-4 p-4 rounded-t-3xl">
+          <div class="bg-white mt-4 p-4 rounded-t-3xl pb-16">
             <div class="bg-pure-white shadow-lg w-11/12 m-auto mt-6 text-primary rounded-lg">
               <div class="bg-primary">
                 <p class="p-6 font-bold text-center text-xl text-white">ANTRIAN SAAT INI</p>

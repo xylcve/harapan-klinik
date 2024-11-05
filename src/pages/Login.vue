@@ -6,23 +6,28 @@
       <img src="../assets/logo-small.svg" alt="" class="m-auto">
       <p class="text-white text-lg mt-6 font-semibold">Menu <span class="font-bold">Login</span></p>
       <p class="text-white">Silahkan Login untuk melanjutkan ke dalam <br> Aplikasi.</p>
-      <div class="bg-pure-white shadow-lg rounded-lg p-10 mt-6">
-        <div class="bg-white flex items-center rounded p-4">
-          <img src="../assets/person.svg" alt="" class="w-8 h-8">
-          <input type="text" placeholder="Email / No. HP" v-model="email"
-            class="text-gray font-semibold ml-2 w-full outline-none bg-white" />
+
+      <!-- Tambahkan elemen <form> disini -->
+      <form @submit.prevent="handleLogin">
+        <div class="bg-pure-white shadow-lg rounded-lg p-5 mt-6">
+          <div class="bg-white flex items-center rounded p-2">
+            <img src="../assets/person.svg" alt="" class="w-8 h-8">
+            <input required type="text" placeholder="Email / No. HP" v-model="email"
+              class="text-gray font-semibold ml-2 w-full outline-none bg-white" />
+          </div>
+          <div class="mt-4 bg-white flex items-center rounded relative p-2">
+            <img src="../assets/lock.svg" alt="" class="w-8 h-8">
+            <input required :type="showPassword ? 'text' : 'password'" placeholder="Password" v-model="password"
+              class="text-gray font-semibold ml-2 w-full outline-none bg-white" />
+            <img :src="showPassword ? eyeOpenIcon : eyeClosedIcon" alt=""
+              class="w-6 h-6 absolute right-3 cursor-pointer" @click="togglePasswordVisibility" />
+          </div>
+          <button type="submit" class="w-full bg-secondary mt-6 text-white p-2 rounded font-bold">Login
+            Sekarang</button>
+          <p class="text-primary text-center mt-4 italic underline">Lupa password?</p>
         </div>
-        <div class="mt-8 bg-white flex items-center rounded relative p-4">
-          <img src="../assets/lock.svg" alt="" class="w-8 h-8">
-          <input :type="showPassword ? 'text' : 'password'" placeholder="Password" v-model="password"
-            class="text-gray font-semibold ml-2 w-full outline-none bg-white" />
-          <img :src="showPassword ? eyeOpenIcon : eyeClosedIcon" alt="" class="w-6 h-6 absolute right-3 cursor-pointer"
-            @click="togglePasswordVisibility" />
-        </div>
-        <button @click="handleLogin" class="w-full bg-secondary mt-8 text-white p-2 rounded font-bold">Login
-          Sekarang</button>
-        <p class="text-primary text-center mt-4 italic underline">Lupa password?</p>
-      </div>
+      </form>
+
       <p class="mt-8 text-primary">Belum punya akun? <span class="font-bold">Daftar Sekarang!</span></p>
       <RegisterCard />
       <Information class="mt-8" />

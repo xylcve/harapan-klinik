@@ -16,7 +16,11 @@ export default {
       'red': '#BC585A',
       'black': '#000000'
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+     }
+    },
   },
   plugins: [],
 }

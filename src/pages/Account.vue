@@ -7,7 +7,6 @@
       <div class="bg-pure-white p-4 m-4 rounded-lg shadow-lg">
         <div v-for="(item, index) in profileFields" :key="index" class="mt-4 bg-white flex p-3 items-center rounded">
           <img :src="item.icon" alt="" class="w-6 h-6">
-          <!-- Menampilkan input type date untuk tanggal lahir -->
           <input v-if="item.placeholder === 'Tanggal Lahir'" type="date" v-model="item.value" readonly
             class="ml-2 w-full outline-none bg-white text-gray cursor-not-allowed" />
           <input v-else type="text" v-model="item.value" :placeholder="item.placeholder" readonly
@@ -16,23 +15,23 @@
         <div class="mt-4 flex text-gray">
           <p class="font-semibold">Jenis Kelamin: </p>
           <div class="flex gap-2 items-center ml-4">
-            <input type="checkbox" v-model="gender.pria" disabled>
-            <span>Pria</span>
+            <input type="radio" id="genderPria" value="pria" v-model="gender" name="gender" />
+            <label for="genderPria">Pria</label>
           </div>
           <div class="flex gap-2 items-center ml-4">
-            <input type="checkbox" v-model="gender.wanita" disabled>
-            <span>Wanita</span>
+            <input type="radio" id="genderWanita" value="wanita" v-model="gender" name="gender" />
+            <label for="genderWanita">Wanita</label>
           </div>
         </div>
         <button @click="openEditDialog"
           class="bg-primary w-full flex justify-center p-2 rounded mt-4 text-white gap-2 items-center">
-          <img src="../assets/edit-profile.svg" alt="" class="w-8 h-8"><span class="font-bold">Edit Profile</span>
+          <img src="../assets/edit-profile.svg" alt="" class="w-8 h-8" /><span class="font-bold">Edit Profile</span>
         </button>
       </div>
       <div class="px-4 mx-4">
         <button @click="showConfirmDialog = true"
           class="bg-red w-full mx-auto flex justify-center p-2 rounded mt-4 text-white gap-2 items-center">
-          <img src="../assets/logout.svg" alt="" class="w-8 h-8"><span class="font-bold">Logout</span>
+          <img src="../assets/logout.svg" alt="" class="w-8 h-8" /><span class="font-bold">Logout</span>
         </button>
       </div>
     </div>
@@ -45,7 +44,6 @@
         <div v-for="(item, index) in editProfileFields" :key="index"
           class="mt-4 bg-white flex p-3 items-center rounded">
           <img :src="item.icon" alt="" class="w-6 h-6">
-          <!-- Menampilkan input type date untuk tanggal lahir -->
           <input v-if="item.placeholder === 'Tanggal Lahir'" type="date" v-model="item.value"
             class="ml-2 w-full outline-none bg-white text-gray" />
           <input v-else type="text" v-model="item.value" :placeholder="item.placeholder"
@@ -54,12 +52,12 @@
         <div class="mt-4 flex text-gray">
           <p class="font-semibold">Jenis Kelamin: </p>
           <div class="flex gap-2 items-center ml-4">
-            <input type="checkbox" v-model="editGender.pria">
-            <span>Pria</span>
+            <input type="radio" id="editGenderPria" value="pria" v-model="editGender" name="editGender" />
+            <label for="editGenderPria">Pria</label>
           </div>
           <div class="flex gap-2 items-center ml-4">
-            <input type="checkbox" v-model="editGender.wanita">
-            <span>Wanita</span>
+            <input type="radio" id="editGenderWanita" value="wanita" v-model="editGender" name="editGender" />
+            <label for="editGenderWanita">Wanita</label>
           </div>
         </div>
         <div class="flex justify-end gap-4 mt-4">
@@ -106,20 +104,17 @@ export default {
         { icon: DateIcon, value: '2000-01-01', placeholder: 'Tanggal Lahir' }, // Format tanggal
         { icon: LocationIcon, value: 'Jl. Contoh No. 123', placeholder: 'Alamat Lengkap' }
       ],
-      gender: {
-        pria: true,
-        wanita: false
-      },
+      gender: 'pria', // Mengubah gender menjadi string
       // Properti untuk menyimpan salinan data yang sedang diedit
       editProfileFields: [],
-      editGender: {}
+      editGender: 'pria' // Mengubah gender menjadi string
     };
   },
   methods: {
     openEditDialog() {
       // Salin data ke dalam editProfileFields dan editGender
       this.editProfileFields = JSON.parse(JSON.stringify(this.profileFields));
-      this.editGender = { ...this.gender };
+      this.editGender = this.gender; // Pastikan gender yang diedit sama dengan gender yang sedang digunakan
       this.showEditDialog = true; // Tampilkan dialog edit
     },
     logout() {
@@ -128,7 +123,7 @@ export default {
     updateProfile() {
       // Perbarui data asli dengan data yang diedit
       this.profileFields = JSON.parse(JSON.stringify(this.editProfileFields));
-      this.gender = { ...this.editGender };
+      this.gender = this.editGender; // Perbarui gender
       console.log('Profile updated:', this.profileFields);
       this.showEditDialog = false; // Tutup dialog setelah menyimpan
     }
