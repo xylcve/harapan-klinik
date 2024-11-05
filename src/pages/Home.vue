@@ -29,7 +29,7 @@
           <!-- Dialog Konfirmasi -->
           <div v-if="showConfirmDialog"
             class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-30">
-            <div class="bg-white p-6 m-6 w-full rounded-lg shadow-lg">
+            <div class="bg-white p-6 m-6 w-full max-w-md rounded-lg shadow-lg">
               <p class="text-gray font-bold text-lg">Konfirmasi</p>
               <hr class="my-2 h-px border-0 bg-gray-light">
               <p class="text-gray font-semibold mt-4">Apakah Anda yakin ingin mengambil nomor antrian?</p>
