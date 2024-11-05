@@ -1,0 +1,150 @@
+<template>
+    <div id="home-app" class="bg-primary">
+        <div class="content">
+            <!-- Parent Div -->
+            <div v-if="!hasTakenQueue">
+                <!-- Konten Sebelum Mengambil Antrian (Home App) -->
+                <div class="bg-white w-11/12 m-auto mt-6 text-primary rounded-lg">
+                    <div class="bg-secondary">
+                        <p class="p-6 font-bold text-center text-xl text-white">ANTRIAN SAAT INI</p>
+                    </div>
+                    <hr>
+                    <p class="p-12 text-6xl font-bold text-center">09</p>
+                    <hr>
+                    <p class="p-3 text-center"><span class="font-bold">13</span> Pasien Sedang Antri</p>
+                </div>
+
+                <!-- Bagian Ambil Nomor Antrian -->
+                <div class="bg-white mt-16 p-4 rounded-t-3xl">
+                    <p class="text-center text-primary font-bold text-lg">AMBIL NOMOR ANTRIAN</p>
+                    <p class="text-primary mt-2">Ambil nomor antrian di sini selama jam operasional klinik dan <span
+                            class="font-bold">datang sesuai waktu yang ditentukan.</span></p>
+                    <div class="bg-secondary flex rounded items-center justify-center p-4 mt-4 gap-10">
+                        <img src="../assets/antrian.svg" alt="">
+                        <button @click="confirmQueue" class="bg-white text-primary py-2 px-6 rounded font-bold">
+                            Ambil Antrian
+                        </button>
+                    </div>
+
+                    <!-- Dialog Konfirmasi -->
+                    <div v-if="showConfirmDialog"
+                        class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-30">
+                        <div class="bg-white p-6 rounded shadow-lg text-center">
+                            <p class="text-primary font-semibold">Apakah Anda yakin ingin mengambil nomor antrian?</p>
+                            <div class="flex justify-center gap-4 mt-4">
+                                <button @click="takeQueue"
+                                    class="bg-secondary text-white px-4 py-2 rounded font-bold">Ya</button>
+                                <button @click="showConfirmDialog = false"
+                                    class="bg-gray-200 px-4 py-2 rounded font-bold">Batal</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Loading Indikator -->
+                    <div v-if="loading"
+                        class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-30">
+                        <div class="bg-white p-4 rounded shadow-lg text-center">
+                            <p class="text-primary font-semibold">Sedang Memproses...</p>
+                        </div>
+                    </div>
+
+                    <!-- Informasi Tambahan -->
+                    <div class="flex flex-col items-center w-full">
+                        <hr class="text-primary mt-6 w-2/4">
+                        <hr class="text-primary mt-2 w-3/4">
+                        <hr class="text-primary mt-2 w-full">
+                        <Information class="mt-4" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Konten Setelah Mengambil Antrian (Home Antrian) -->
+            <div v-else>
+                <div id="home-antrian" class="bg-primary">
+                    <p class="mt-6 text-white text-center"><span class="font-bold">Berhasil</span> Ambil Nomor Antrian
+                    </p>
+                    <div class="bg-white w-11/12 m-auto mt-6 text-primary rounded-lg">
+                        <div class="bg-secondary">
+                            <p class="p-6 font-bold text-center text-xl text-white">NOMOR ANTRIAN ANDA</p>
+                        </div>
+                        <hr>
+                        <p class="p-12 text-6xl font-bold text-center">{{ queueNumber }}</p>
+                        <hr>
+                        <p class="p-3 text-center">Menunggu <span class="font-bold">{{ waitingPatients }}</span> Antrian
+                            Pasien</p>
+                    </div>
+                    <div class="px-4 mt-4">
+                        <p class="text-white">Anda telah <span class="font-bold"> berhasil mendapatkan nomor antrian
+                            </span>
+                            silahkan tunjukkan ke petugas yang ada.</p>
+                    </div>
+                    <div class="bg-white mt-4 p-4 rounded-t-3xl">
+                        <div class="bg-pure-white shadow-lg w-11/12 m-auto mt-6 text-primary rounded-lg">
+                            <div class="bg-primary">
+                                <p class="p-6 font-bold text-center text-xl text-white">ANTRIAN SAAT INI</p>
+                            </div>
+                            <hr>
+                            <p class="p-12 text-6xl font-bold text-center">{{ queueNumber }}</p>
+                            <hr>
+                            <p class="p-3 text-center">Menunggu <span class="font-bold">{{ waitingPatients }}</span>
+                                Antrian Pasien</p>
+                        </div>
+                        <p class="text-gray mt-4">Nomor Antrian yang telah didapatkan akan <span class="font-bold"> di
+                                hapus
+                                setelah 1 x 24 jam </span></p>
+                        <Information class="mt-4" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+import Information from '../components/Information.vue';
+
+export default {
+    name: 'Home',
+    components: {
+        Information
+    },
+    setup() {
+        const showConfirmDialog = ref(false);
+        const loading = ref(false);
+        const hasTakenQueue = ref(false); // Menandakan apakah user sudah mengambil nomor antrian
+        const queueNumber = ref(''); // Menyimpan nomor antrian yang didapat
+        const waitingPatients = ref(3); // Jumlah pasien yang sedang menunggu
+
+        const confirmQueue = () => {
+            showConfirmDialog.value = true;
+        };
+
+        const takeQueue = () => {
+            showConfirmDialog.value = false;
+            loading.value = true;
+
+            // Simulasi loading selama 2 detik sebelum nomor antrian diambil
+            setTimeout(() => {
+                loading.value = false;
+                hasTakenQueue.value = true;
+                queueNumber.value = Math.floor(Math.random() * 100) + 1; // Mendapatkan nomor antrian acak
+            }, 2000);
+        };
+
+        return {
+            showConfirmDialog,
+            loading,
+            hasTakenQueue,
+            queueNumber,
+            waitingPatients,
+            confirmQueue,
+            takeQueue
+        };
+    }
+};
+</script>
+
+<style scoped>
+/* Tambahkan styling tambahan jika perlu */
+</style>
