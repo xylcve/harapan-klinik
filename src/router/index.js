@@ -6,12 +6,10 @@ import Contact from '../pages/Contact.vue';
 import Account from '../pages/Account.vue';
 import Login from '../pages/Login.vue'; // Import halaman Login
 import Register from '../pages/Register.vue'; // Import halaman Register
-import HomeAntrian from '../pages/HomeAntrian.vue';
 
 const routes = [
   { path: '/', component: Landing }, // Halaman landing
   { path: '/home', component: Home },
-  { path: '/home-antrian', component: HomeAntrian },
   { path: '/history', component: History },
   { path: '/contact', component: Contact },
   { path: '/account', component: Account },

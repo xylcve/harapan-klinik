@@ -3,7 +3,7 @@
     <div class="content">
       <!-- Parent Div -->
       <div v-if="!hasTakenQueue">
-        <p class="mt-6 text-white text-center">Selamat Datang<span class="font-bold"> Afif,</span></p>
+        <p class="pt-6 text-white text-center">Selamat Datang<span class="font-bold"> Afif,</span></p>
         <!-- Konten Sebelum Mengambil Antrian (Home App) -->
         <div class="bg-white w-11/12 m-auto mt-6 text-primary rounded-lg">
           <div class="bg-secondary">
@@ -120,12 +120,12 @@ export default {
       showConfirmDialog.value = false;
       loading.value = true;
 
-      // Simulasi loading selama 2 detik sebelum nomor antrian diambil
+      // Simulasi loading selama 3 detik sebelum nomor antrian diambil
       setTimeout(() => {
         loading.value = false;
         hasTakenQueue.value = true;
         queueNumber.value = Math.floor(Math.random() * 100) + 1; // Mendapatkan nomor antrian acak
-      }, 5000);
+      }, 3000);
     };
 
     return {

@@ -1,19 +1,27 @@
 <template>
   <div id="app"
-    class="relative w-full max-w-md min-h-screen font-sans text-gray-800 flex flex-col m-auto text-sm drop-shadow-2xl">
-    <NavbarTop v-if="!isLoginPage && !isRegisterPage && !isLandingPage" />
-    <main class="flex-grow bg-primary flex flex-col">
+    class="relative w-full max-w-md h-screen font-sans text-gray-800 flex flex-col m-auto text-sm drop-shadow-2xl">
+
+    <!-- Navbar Top (Hanya tampil saat bukan di halaman Login, Register, dan Landing) -->
+    <NavbarTop v-if="!isLoginPage && !isRegisterPage && !isLandingPage" class="sticky top-0 w-full z-10 bg-primary" />
+
+    <!-- Main Content yang dapat di-scroll -->
+    <main class="flex-grow bg-white overflow-auto">
       <router-view></router-view> <!-- Konten halaman berdasarkan router -->
     </main>
-    <Navbar v-if="!isLoginPage && !isRegisterPage && !isLandingPage" class="fixed bottom-0 w-full max-w-md" />
 
     <!-- Elemen Message hanya ditampilkan di halaman Contact -->
-    <div v-if="isContactPage"
-      class="bg-gray-light w-11/12 max-w-md flex justify-between items-center p-2 rounded fixed left-1/2 transform -translate-x-1/2 bottom-20 z-50">
-      <p class="text-gray">Message...</p>
-      <div class="w-10 h-10 rounded-full bg-secondary grid place-items-center">
-        <img src="./assets/send.svg" alt="">
+    <div class="sticky bottom-0 z-50 bg-white">
+      <div v-if="isContactPage"
+        class="bg-gray-light w-11/12 max-w-md flex justify-between items-center mx-auto mb-4 p-2 rounded">
+        <p class="text-gray">Message...</p>
+        <div class="w-10 h-10 rounded-full bg-secondary grid place-items-center">
+          <img src="./assets/send.svg" alt="">
+        </div>
       </div>
+
+      <!-- Navbar Sticky di Bagian Bawah Layar -->
+      <Navbar v-if="!isLoginPage && !isRegisterPage && !isLandingPage" />
     </div>
   </div>
 </template>
@@ -46,5 +54,5 @@ export default {
 </script>
 
 <style scoped>
-/* Anda dapat menambahkan styling tambahan jika perlu */
+/* Styling tambahan jika diperlukan */
 </style>

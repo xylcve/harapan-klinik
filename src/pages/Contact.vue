@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary pt-6 flex flex-col h-screen">
+  <div class="bg-primary pt-6 flex flex-col h-max">
     <p class="text-white text-center">Menu <span class="font-bold">Pesan</span></p>
     <div class="w-full bg-white flex-grow mt-6 rounded-t-3xl p-6 flex flex-col overflow-y-auto">
       <div class="bg-gray-light w-fit p-2 rounded-tl-xl rounded-tr-xl rounded-br-xl">
@@ -13,6 +13,7 @@
       </div>
 
     </div>
+
   </div>
 </template>
 
