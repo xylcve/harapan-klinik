@@ -14,9 +14,10 @@
     <div class="sticky bottom-0 z-50 bg-white">
       <div v-if="isContactPage"
         class="bg-gray-light w-11/12 max-w-md flex justify-between items-center mx-auto mb-4 p-2 rounded">
-        <p class="text-gray">Message...</p>
+        <input type="text" placeholder="Type your message..." v-model="messageText"
+          class="w-full p-2 rounded text-gray outline-none bg-gray-light" />
         <div class="w-10 h-10 rounded-full bg-secondary grid place-items-center">
-          <img src="./assets/send.svg" alt="">
+          <img src="./assets/send.svg" alt="Send" />
         </div>
       </div>
 
@@ -35,6 +36,11 @@ export default {
   components: {
     Navbar,
     NavbarTop,
+  },
+  data() {
+    return {
+      messageText: '', // Menyimpan nilai input pesan
+    };
   },
   computed: {
     isLoginPage() {
