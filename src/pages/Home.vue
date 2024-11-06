@@ -60,7 +60,7 @@
       <!-- Konten Setelah Mengambil Antrian (Home Antrian) -->
       <div v-else>
         <div id="home-antrian" class="bg-primary">
-          <p class="mt-6 text-white text-center"><span class="font-bold">Berhasil</span> Ambil Nomor Antrian</p>
+          <p class="pt-6 text-white text-center"><span class="font-bold">Berhasil</span> Ambil Nomor Antrian</p>
           <div class="bg-white w-11/12 m-auto mt-6 text-primary rounded-lg">
             <div class="bg-secondary">
               <p class="p-6 font-bold text-center text-xl text-white">NOMOR ANTRIAN ANDA</p>
