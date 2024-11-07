@@ -41,7 +41,7 @@
         <Information />
       </div>
       <div class="flex-1 p-8">
-        <div class="relative z-20 pt-12">
+        <div class="relative z-20">
           <p class="text-white text-lg mt-6 font-semibold">Menu <span class="font-bold">Login</span></p>
           <p class="text-white">Silahkan Login untuk melanjutkan ke dalam <br> Aplikasi.</p>
 
