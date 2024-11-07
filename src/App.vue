@@ -1,6 +1,5 @@
 <template>
-  <div id="app"
-    class="relative w-full max-w-md h-screen font-sans text-gray-800 flex flex-col m-auto text-sm drop-shadow-2xl">
+  <div id="app" class="relative w-full h-screen font-sans text-gray-800 flex flex-col m-auto text-sm drop-shadow-2xl">
 
     <!-- Navbar Top (Hanya tampil saat bukan di halaman Login, Register, dan Landing) -->
     <NavbarTop v-if="!isLoginPage && !isRegisterPage && !isLandingPage" class="sticky top-0 w-full z-10 bg-primary" />
