@@ -1,6 +1,6 @@
 <template>
   <div class="grid place-items-center min-h-screen">
-    <div class="relative md:hidden">
+    <div class="relative w-full md:hidden">
       <div class="absolute top-0 w-full h-96 bg-primary rounded-b-xl z-10"></div>
       <div class="absolute top-0 w-full h-full bg-white z-0"></div>
       <div class="relative z-20 pt-6">
