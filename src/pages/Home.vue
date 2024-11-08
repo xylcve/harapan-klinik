@@ -1,10 +1,8 @@
 <template>
   <div id="home-app" class="bg-primary">
     <div class="content">
-      <!-- Parent Div -->
       <div v-if="!hasTakenQueue">
         <p class="pt-6 text-white text-center">Selamat Datang<span class="font-bold"> Afif,</span></p>
-        <!-- Konten Sebelum Mengambil Antrian (Home App) -->
         <div class="bg-white w-11/12 m-auto mt-6 text-primary rounded-lg">
           <div class="bg-secondary">
             <p class="p-6 font-bold text-center text-xl text-white">ANTRIAN SAAT INI</p>
@@ -14,7 +12,6 @@
           <p class="p-3 text-center"><span class="font-bold">13</span> Pasien Sedang Antri</p>
         </div>
 
-        <!-- Bagian Ambil Nomor Antrian -->
         <div class="bg-white mt-16 p-4 rounded-t-3xl pb-16">
           <p class="text-center text-primary font-bold text-lg">AMBIL NOMOR ANTRIAN</p>
           <p class="text-primary mt-2">Ambil nomor antrian di sini selama jam operasional klinik dan <span
@@ -26,7 +23,6 @@
             </button>
           </div>
 
-          <!-- Dialog Konfirmasi -->
           <div v-if="showConfirmDialog"
             class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-30">
             <div class="bg-white p-6 m-6 w-full max-w-md rounded-lg shadow-lg">
@@ -42,12 +38,10 @@
             </div>
           </div>
 
-          <!-- Loading Indikator -->
           <div v-if="loading" class="fixed inset-0 flex items-center justify-center bg-white z-30">
             <Spinner />
           </div>
 
-          <!-- Informasi Tambahan -->
           <div class="flex flex-col items-center w-full">
             <hr class="text-primary mt-6 w-2/4 h-px border-0 bg-gray-light">
             <hr class="text-primary mt-2 w-3/4 h-px border-0 bg-gray-light">
@@ -57,7 +51,6 @@
         </div>
       </div>
 
-      <!-- Konten Setelah Mengambil Antrian (Home Antrian) -->
       <div v-else>
         <div id="home-antrian" class="bg-primary">
           <p class="pt-6 text-white text-center"><span class="font-bold">Berhasil</span> Ambil Nomor Antrian</p>

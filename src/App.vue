@@ -1,15 +1,12 @@
 <template>
   <div id="app" class="relative w-full h-screen font-sans text-gray-800 flex flex-col m-auto text-sm drop-shadow-2xl">
 
-    <!-- Navbar Top (Hanya tampil saat bukan di halaman Login, Register, dan Landing) -->
     <NavbarTop v-if="!isLoginPage && !isRegisterPage && !isLandingPage" class="sticky top-0 w-full z-10 bg-primary" />
 
-    <!-- Main Content yang dapat di-scroll -->
     <main class="flex-grow bg-white overflow-auto">
-      <router-view></router-view> <!-- Konten halaman berdasarkan router -->
+      <router-view></router-view>
     </main>
 
-    <!-- Elemen Message hanya ditampilkan di halaman Contact -->
     <div class="sticky bottom-0 z-50 bg-white">
       <div v-if="isContactPage"
         class="bg-gray-light w-11/12 max-w-md flex justify-between items-center mx-auto mb-4 p-2 rounded">
@@ -20,7 +17,6 @@
         </div>
       </div>
 
-      <!-- Navbar Sticky di Bagian Bawah Layar -->
       <Navbar v-if="!isLoginPage && !isRegisterPage && !isLandingPage" />
     </div>
   </div>
@@ -38,7 +34,7 @@ export default {
   },
   data() {
     return {
-      messageText: '', // Menyimpan nilai input pesan
+      messageText: '',
     };
   },
   computed: {
@@ -52,12 +48,8 @@ export default {
       return this.$route.path === '/';
     },
     isContactPage() {
-      return this.$route.path === '/contact'; // Menambahkan computed property untuk halaman Contact
+      return this.$route.path === '/contact';
     },
   },
 };
 </script>
-
-<style scoped>
-/* Styling tambahan jika diperlukan */
-</style>

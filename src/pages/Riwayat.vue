@@ -2,7 +2,6 @@
   <div class="bg-primary pt-6">
     <p class="text-center text-white">Menu <span class="font-bold">Riwayat</span></p>
 
-    <!-- Summary card -->
     <div class="relative mt-6 flex justify-center items-center">
       <img src="../assets/history-card.svg" alt="" />
       <div class="absolute top-10 text-center">
@@ -11,7 +10,6 @@
       </div>
     </div>
 
-    <!-- List of visits -->
     <div class="bg-primary-darker w-fit py-4 px-6 mt-6 text-white rounded-tr-3xl">
       <p>Riwayat Kunjungan</p>
     </div>
@@ -25,7 +23,7 @@
             <p class="font-bold">Kunjungan, {{ visit.date }}</p>
             {{ visit.time }}
           </div>
-          <!-- Ikon besar hanya untuk kunjungan terbaru (index 0) -->
+
           <div v-if="index === 0" class="w-6 h-6 bg-secondary rounded relative grid place-items-center">
             <div class="w-3 h-3 bg-white absolute rounded-full"></div>
           </div>

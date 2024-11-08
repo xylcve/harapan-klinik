@@ -1,20 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Landing from '../pages/Landing.vue';
 import Home from '../pages/Home.vue';
-import History from '../pages/History.vue';
-import Contact from '../pages/Contact.vue';
-import Account from '../pages/Account.vue';
-import Login from '../pages/Login.vue'; // Import halaman Login
-import Register from '../pages/Register.vue'; // Import halaman Register
+import Riwayat from '../pages/Riwayat.vue';
+import Pesan from '../pages/Pesan.vue';
+import Akun from '../pages/Akun.vue';
+import Login from '../pages/Login.vue';
+import Register from '../pages/Register.vue';
 
 const routes = [
-  { path: '/', component: Landing }, // Halaman landing
+  { path: '/', component: Landing },
   { path: '/home', component: Home },
-  { path: '/history', component: History },
-  { path: '/contact', component: Contact },
-  { path: '/account', component: Account },
-  { path: '/login', component: Login }, // Rute untuk halaman Login
-  { path: '/register', component: Register }, // Rute untuk halaman Register
+  { path: '/riwayat', component: Riwayat },
+  { path: '/pesan', component: Pesan },
+  { path: '/akun', component: Akun },
+  { path: '/login', component: Login },
+  { path: '/register', component: Register },
 ];
 
 const router = createRouter({

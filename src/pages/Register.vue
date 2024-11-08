@@ -8,7 +8,6 @@
         <p class="text-white text-lg mt-6 font-semibold">Menu <span class="font-bold">Daftar</span></p>
         <p class="text-white">Silahkan Daftar untuk melanjutkan ke dalam Aplikasi Harapan Klinik.</p>
 
-        <!-- Tambahkan elemen <form> disini -->
         <form @submit.prevent="handleRegister">
           <div class="bg-pure-white shadow-lg rounded-lg p-5 mt-6">
             <div class="bg-white flex items-center rounded p-2">
@@ -66,7 +65,7 @@
           </div>
         </form>
 
-        <p class="mt-8 text-primary">Sudah punya akun? <span class="font-bold">Login Sekarang!</span></p>
+        <p class="mt-8 text-primary sm:text-center">Sudah punya akun? <span class="font-bold">Login Sekarang!</span></p>
         <LoginCard />
         <Information class="mt-8" />
       </div>
@@ -154,7 +153,6 @@ import { useRouter } from 'vue-router';
 import LoginCard from '../components/LoginCard.vue';
 import Information from '../components/Information.vue';
 
-// Import ikon mata
 import eyeOpenIcon from '../assets/eye-open.svg';
 import eyeClosedIcon from '../assets/eye-closed.svg';
 
@@ -172,14 +170,13 @@ export default {
     const phoneNumber = ref('');
     const birthDate = ref('');
     const address = ref('');
-    const gender = ref(''); // Menyimpan nilai "Pria" atau "Wanita"
+    const gender = ref('');
 
     const showPassword = ref(false);
     const showConfirmPassword = ref(false);
     const router = useRouter();
 
     const handleRegister = () => {
-      // Simulasi register berhasil tanpa validasi
       router.push('/home');
     };
 

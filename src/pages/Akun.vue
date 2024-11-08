@@ -13,7 +13,6 @@
             class="ml-2 w-full outline-none bg-white text-gray cursor-not-allowed" />
         </div>
 
-        <!-- Jenis Kelamin -->
         <div class="mt-4 flex text-gray">
           <p class="font-semibold">Jenis Kelamin: </p>
           <div class="flex gap-2 items-center ml-4">
@@ -40,7 +39,6 @@
       </div>
     </div>
 
-    <!-- Dialog Edit Profile -->
     <div v-if="showEditDialog" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-30">
       <div class="bg-pure-white p-6 m-6 w-full max-w-md rounded-lg shadow-lg">
         <p class="text-gray font-bold text-lg">Edit Profile</p>
@@ -72,7 +70,6 @@
       </div>
     </div>
 
-    <!-- Dialog Konfirmasi -->
     <div v-if="showConfirmDialog" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-30">
       <div class="bg-white p-6 m-6 w-full max-w-md rounded-lg shadow-lg">
         <p class="text-gray font-bold text-lg">Konfirmasi</p>
@@ -101,7 +98,7 @@ export default {
     return {
       showConfirmDialog: false,
       showEditDialog: false,
-      isEditing: false, // Menambah status untuk menandai jika sedang dalam mode edit
+      isEditing: false,
       profileFields: [
         { icon: PersonIcon, value: 'Afif Arifin', placeholder: 'Nama Lengkap' },
         { icon: EmailIcon, value: 'afif@example.com', placeholder: 'Email' },
@@ -116,27 +113,26 @@ export default {
   },
   methods: {
     openEditDialog() {
-      this.isEditing = true; // Aktifkan mode edit
+      this.isEditing = true;
       this.editProfileFields = JSON.parse(JSON.stringify(this.profileFields));
       this.editGender = this.gender;
       this.showEditDialog = true;
     },
     logout() {
-      this.$router.push('/'); // Mengarahkan ke halaman utama
+      this.$router.push('/');
     },
     updateProfile() {
       this.profileFields = JSON.parse(JSON.stringify(this.editProfileFields));
       this.gender = this.editGender;
       console.log('Profile updated:', this.profileFields);
       this.showEditDialog = false;
-      this.isEditing = false; // Matikan mode edit
+      this.isEditing = false;
     }
   }
 };
 </script>
 
 <style scoped>
-/* CSS tambahan untuk tampilan readonly */
 input[readonly] {
   background-color: #edf2f7;
 }
