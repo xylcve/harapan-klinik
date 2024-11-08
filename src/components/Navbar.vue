@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-full max-w-md bg-secondary text-white p-2">
+  <nav class="w-full md:hidden bg-secondary text-white p-2">
     <ul class="flex justify-between items-center space-x-4 h-14">
       <li v-for="item in navItems" :key="item.path">
         <router-link :to="item.path" class="py-3 px-4 rounded flex items-center"
@@ -34,20 +34,20 @@ export default {
           iconFilled: HomeFilledIcon,
         },
         {
-          name: 'History',
-          path: '/history',
+          name: 'Riwayat',
+          path: '/riwayat',
           icon: HistoryIcon,
           iconFilled: HistoryFilledIcon,
         },
         {
-          name: 'Contact',
-          path: '/contact',
+          name: 'Pesan',
+          path: '/pesan',
           icon: ChatIcon,
           iconFilled: ChatFilledIcon,
         },
         {
-          name: 'Account',
-          path: '/account',
+          name: 'Akun',
+          path: '/akun',
           icon: AccountIcon,
           iconFilled: AccountFilledIcon,
         },

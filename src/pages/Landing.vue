@@ -17,13 +17,11 @@
             Aplikasi
           </p>
 
-          <!-- Login Button -->
           <LoginCard />
 
           <p class="mt-4 text-primary sm:text-center">Belum punya akun? <span class="font-bold">Daftar Sekarang!</span>
           </p>
 
-          <!-- Register Button -->
           <RegisterCard />
         </div>
 
@@ -51,14 +49,12 @@
               Aplikasi
             </p>
 
-            <!-- Login Button -->
             <LoginCard />
 
             <p class="mt-4 text-primary sm:text-center">Belum punya akun? <span class="font-bold">Daftar
                 Sekarang!</span>
             </p>
 
-            <!-- Register Button -->
             <RegisterCard />
           </div>
         </div>

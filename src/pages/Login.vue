@@ -6,9 +6,8 @@
       <div class="relative z-20 pt-12 px-6 sm:px-12">
         <img src="../assets/logo-small.svg" alt="" class="m-auto">
         <p class="text-white text-lg mt-6 font-semibold">Menu <span class="font-bold">Login</span></p>
-        <p class="text-white">Silahkan Login untuk melanjutkan ke dalam <br> Aplikasi.</p>
+        <p class="text-white">Silahkan Login untuk melanjutkan ke dalam Aplikasi Harapan Klinik.</p>
 
-        <!-- Tambahkan elemen <form> disini -->
         <form @submit.prevent="handleLogin">
           <div class="bg-pure-white shadow-lg rounded-lg p-5 mt-6">
             <div class="bg-white flex items-center rounded p-2">
@@ -45,7 +44,6 @@
           <p class="text-white text-lg mt-6 font-semibold">Menu <span class="font-bold">Login</span></p>
           <p class="text-white">Silahkan Login untuk melanjutkan ke dalam <br> Aplikasi.</p>
 
-          <!-- Tambahkan elemen <form> disini -->
           <form @submit.prevent="handleLogin">
             <div class="bg-pure-white shadow-lg rounded-lg p-5 mt-6">
               <div class="bg-white flex items-center rounded p-2">
@@ -82,7 +80,6 @@ import { useRouter } from 'vue-router';
 import RegisterCard from '../components/RegisterCard.vue';
 import Information from '../components/Information.vue';
 
-// Import ikon mata
 import eyeOpenIcon from '../assets/eye-open.svg';
 import eyeClosedIcon from '../assets/eye-closed.svg';
 
