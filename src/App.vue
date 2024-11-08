@@ -8,16 +8,17 @@
       <router-view></router-view>
     </main>
 
-    <div class="sticky bottom-0 z-50 bg-white">
-      <div v-if="isContactPage"
-        class="bg-gray-light w-11/12 max-w-md flex justify-between items-center mx-auto mb-4 p-2 rounded">
-        <input type="text" placeholder="Type your message..." v-model="messageText"
-          class="w-full p-2 rounded text-gray outline-none bg-gray-light" />
-        <div class="w-10 h-10 rounded-full bg-secondary grid place-items-center">
-          <img src="./assets/send.svg" alt="Send" />
+    <div class="sticky bottom-0 z-50 bg-white md:hidden">
+      <div class="w-full">
+        <div v-if="isContactPage"
+          class="bg-gray-light w-11/12 flex justify-between items-center mx-auto mb-4 p-2 rounded">
+          <input type="text" placeholder="Type your message..." v-model="messageText"
+            class="w-full p-2 rounded text-gray outline-none bg-gray-light" />
+          <div class="w-10 h-10 rounded-full bg-secondary grid place-items-center">
+            <img src="./assets/send.svg" alt="Send" />
+          </div>
         </div>
       </div>
-
       <Navbar v-if="!isLoginPage && !isRegisterPage && !isLandingPage" />
     </div>
   </div>
@@ -51,7 +52,7 @@ export default {
       return this.$route.path === '/';
     },
     isContactPage() {
-      return this.$route.path === '/contact';
+      return this.$route.path === '/pesan';
     },
   },
 };
