@@ -1,7 +1,8 @@
 <template>
-  <div id="app" class="relative w-full h-screen font-sans text-gray-800 flex flex-col m-auto text-sm drop-shadow-2xl">
+  <div id="app" class="relative w-full h-screen flex flex-col m-auto text-sm drop-shadow-2xl">
 
-    <NavbarTop v-if="!isLoginPage && !isRegisterPage && !isLandingPage" class="sticky top-0 w-full z-10 bg-primary" />
+    <NavbarTop v-if="!isLoginPage && !isRegisterPage && !isLandingPage" />
+    <NavbarSide v-if="!isLoginPage && !isRegisterPage && !isLandingPage" />
 
     <main class="flex-grow bg-white overflow-auto">
       <router-view></router-view>
@@ -25,12 +26,14 @@
 <script>
 import Navbar from './components/Navbar.vue';
 import NavbarTop from './components/NavbarTop.vue';
+import NavbarSide from './components/NavbarSide.vue';
 
 export default {
   name: 'App',
   components: {
     Navbar,
     NavbarTop,
+    NavbarSide
   },
   data() {
     return {
