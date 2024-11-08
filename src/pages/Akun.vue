@@ -1,6 +1,6 @@
 <template>
-  <div class="relative">
-    <div class="w-full h-64 bg-primary rounded-b-xl absolute top-0 z-10"></div>
+  <div class="relative pb-4 md:ml-36 md:mt-4 md:mr-4">
+    <div class="w-full h-64 bg-primary rounded-b-xl md:rounded absolute top-0 z-10"></div>
     <div class="bg-white w-full h-fit absolute top-0 z-0"></div>
     <div class="relative z-20 pt-6">
       <p class="text-white text-center">Menu <span class="font-bold">Profile</span></p>
@@ -27,13 +27,13 @@
         </div>
 
         <button @click="openEditDialog"
-          class="bg-primary w-full flex justify-center p-2 rounded mt-4 text-white gap-2 items-center">
+          class="bg-primary w-full max-w-md mx-auto flex justify-center p-2 rounded mt-4 text-white gap-2 items-center">
           <img src="../assets/edit-profile.svg" alt="" class="w-8 h-8" /><span class="font-bold">Edit Profile</span>
         </button>
       </div>
       <div class="px-4 mx-4">
         <button @click="showConfirmDialog = true"
-          class="bg-red w-full mx-auto flex justify-center p-2 rounded mt-4 text-white gap-2 items-center">
+          class="bg-red w-full max-w-md mx-auto flex justify-center p-2 rounded mt-4 text-white gap-2 items-center">
           <img src="../assets/logout.svg" alt="" class="w-8 h-8" /><span class="font-bold">Logout</span>
         </button>
       </div>
